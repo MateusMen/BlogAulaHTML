@@ -19,9 +19,10 @@
     <div class="container">
         <h1>Login</h1>
         
-        <input type="text" id="username" placeholder="Usuário">
-        <input type="password" id="password" placeholder="Senha">
-        <button onclick="login()">Entrar</button>
+        <form method="POST" action="\login.php">
+            <label>Login:</label><input type="text" name="Username" id="Username"><br>
+            <label>Senha:</label><input type="password" name="senha" id="senha"><br>
+            <input type="submit" value="entrar" id="entrar" name="entrar"><br>
         <a href="cadastro.html">Cadastrar Usuário</a>
     </div>
     
