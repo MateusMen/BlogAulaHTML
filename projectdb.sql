@@ -46,7 +46,7 @@ CREATE TABLE `users` (
   `userID` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_520_nopad_ci NOT NULL,
   `passcode` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_520_nopad_ci NOT NULL,
-  PRIMARY KEY (`postID`);
+  PRIMARY KEY (`userID`);
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
