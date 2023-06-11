@@ -6,7 +6,8 @@
 
 
 function emptyInputSignup($name,$pass){
-    if (empty($name) == true or empty($pass) == true){
+    //validação contra inputs vazios
+    if ($name == '' or $pass=''){
         $result=true;
     }else{
         $result=false;
@@ -15,7 +16,8 @@ function emptyInputSignup($name,$pass){
 }
 
 function emptyInputLogin($name,$pass){
-    if (empty($name) == true or empty($pass)==true){
+    //validação contra inputs vazios
+    if ($name == '' or $pass=''){
         $result=true;
     }else{
         $result=false;
@@ -23,6 +25,7 @@ function emptyInputLogin($name,$pass){
     return $result;
 }
 function invalidUid($name){
+    //checha se o usuario usou caracteres esquisitos
     if (!preg_match("/^[a-zA-Z0-9]*$/", $name) or strlen($name)>45){
         $result=true;
     }else{
@@ -32,6 +35,7 @@ function invalidUid($name){
 }
 
 function invalidPass($pass){
+    //checha se o usuario usou caracteres esquisitos
     if (!preg_match("/^[a-zA-Z0-9]*$/",$pass) or strlen($pass)>45){
         $result=true;
     }else{
@@ -66,6 +70,7 @@ function uidexists($conn,$name){
 }
 
 function createUser($conn,$name,$pass){
+    //cadastra o usuario usando hash na senha
     $sql = "INSERT INTO users (username,passcode) VALUES (?,?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)){

@@ -14,24 +14,24 @@ if (isset($_POST["cadastrar"])){
   require_once ('functions.php');
 
   if(emptyInputSignup($name,$pass)==true){
-    header("location: cadastro.html?error=emptyinput");
+    header("location: ../cadastro.html?error=emptyinput");
     exit();
   }
   if(invalidUid($name)!==false){
-    header("location: cadastro.html?error=invalidUid");
+    header("location: ../cadastro.html?error=invalidUid");
     exit();
   }
   if(invalidPass($pass)!==false){
-    header("location: cadastro.html?error=invalidpass");
+    header("location: ../cadastro.html?error=invalidpass");
     exit();
   }
   if(uidexists($conn,$name)!==false){
-    header("location: cadastro.html?error=uiexists");
+    header("location: ../cadastro.html?error=uiexists");
     exit();
   }
   createUser($conn,$name,$pass);
 }else{
-  header("location: cadastro.html?error=none");
+  header("location: ../cadastro.html?error=none");
   exit();
 }
 ?>
