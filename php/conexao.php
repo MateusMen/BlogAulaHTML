@@ -7,7 +7,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "Projectdb";
+$dbname = "projectdb";
 $port = 3306;
 
 
