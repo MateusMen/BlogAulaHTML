@@ -19,10 +19,12 @@
     <div class="container">
         <h1>Criar Postagem</h1>
         
-        <input type="text" id="title" placeholder="Título">
-        <textarea id="content" placeholder="Conteúdo"></textarea>
-        <input type="text" id="author" placeholder="Autor">
-        <button onclick="criarPost()">Salvar</button>
+        <form method="post" action="php/posts.php">
+            <input type="text" id="title" placeholder="Título">
+            <textarea id="content" placeholder="Conteúdo"></textarea>
+            <input type="text" id="author" placeholder="Autor">
+            <input type="submit" value="submitpost" id="submitpost" name="submitpost">
+        </form>
     </div>
     
     <script src="script.js"></script>

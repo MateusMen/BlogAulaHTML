@@ -6,8 +6,8 @@
 
 if (isset($_POST["cadastrar"])){
 
-  $name = $_POST["Username"];
-  $pass = $_POST["senha"];
+  $name = $_POST['Username'];
+  $pass = $_POST['senha'];
 
 
   require_once ('conexao.php');

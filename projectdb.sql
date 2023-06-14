@@ -28,11 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `posts` (
-  `postID` int(11) NOT NULL,
+  `postID` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `content` text NOT NULL,
-  `authos` varchar(45) NOT NULL,
-  `created_at` timestamp(2) NOT NULL DEFAULT current_timestamp(2) ON UPDATE current_timestamp(2)
+  `author` varchar(45) NOT NULL,
+  `created_at` timestamp(2) NOT NULL DEFAULT current_timestamp(2) ON UPDATE current_timestamp(2),
+  PRIMARY KEY('postID')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -42,43 +43,13 @@ CREATE TABLE `posts` (
 --
 
 CREATE TABLE `users` (
-  `userID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_520_nopad_ci NOT NULL,
-  `passcode` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_520_nopad_ci NOT NULL
+  `passcode` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_520_nopad_ci NOT NULL,
+  PRIMARY KEY('userID')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`postID`);
-
---
--- Índices de tabela `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`userID`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `posts`
---
-ALTER TABLE `posts`
-  MODIFY `postID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `users`
---
-ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

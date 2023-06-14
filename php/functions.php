@@ -24,6 +24,15 @@ function emptyInputLogin($name,$pass){
     }
     return $result;
 }
+function emptyInputPost($title,$content,$author){
+    //validação contra inputs vazios
+    if ($title == '' or $content=='' or $author == ''){
+        $result=true;
+    }else{
+        $result=false;
+    }
+    return $result;
+}
 function invalidUid($name){
     //checha se o usuario usou caracteres esquisitos
     if (!preg_match("/^[a-zA-Z0-9]*$/", $name) or strlen($name)>45){
@@ -71,21 +80,22 @@ function uidexists($conn,$name){
 
 function createUser($conn,$name,$pass){
     //cadastra o usuario usando hash na senha
-    $sql = "INSERT INTO users (username,passcode) VALUES (?,?);";
+    $sql = "INSERT INTO users (username, passcode) VALUES (?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt,$sql)){
         header("location:  ../cadastro.html?error=stmtfailed");
     exit();
     }
 
-    $hashedPass = password_hash($pass,PASSWORD_DEFAULT);
+    //$hashedPass = password_hash($pass, PASSWORD_BCRYPT);
 
-    mysqli_stmt_bind_param($stmt,"ss",$name,$hashedPass);
+    mysqli_stmt_bind_param($stmt,"ss",$name,$pass);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../login.html?error=none");
     exit();
 }
+
 
 
 ?>

@@ -27,6 +27,27 @@ function criarPost() {
     // Caso contrário, exiba uma mensagem de erro
 }
 
+function displayPosts(){
+    //essa função ainda e wip
+    // Fetch the posts from the server
+fetch('fetch_posts.php')
+.then(response => response.json())
+.then(posts => {
+  // Iterate over the posts and display them
+  for (let post of posts) {
+    const postContainer = document.createElement('div');
+    postContainer.innerHTML = `
+      <h2>${post.title}</h2>
+      <p>${post.content}</p>
+      <p><em>Author: ${post.author}</em></p>
+      <p><em>Created at: ${post.created_at}</em></p>
+      <hr>
+    `;
+    document.body.appendChild(postContainer);
+  }
+});
+}
+
 function exibirPostsRecentes() {
     const postList = document.getElementById('postList');
 
