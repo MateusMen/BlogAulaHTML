@@ -86,7 +86,9 @@ function createUser($conn,$name,$pass){
         header("location:  ../cadastro.html?error=stmtfailed");
     exit();
     }
-
+    
+    //password_verify se recusa a funcionar mesmo dando a senha certa
+    //então função de hashing foi abandonada
     //$hashedPass = password_hash($pass, PASSWORD_BCRYPT);
 
     mysqli_stmt_bind_param($stmt,"ss",$name,$pass);
